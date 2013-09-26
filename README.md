@@ -24,10 +24,10 @@ Use
 
 There are currently 2 different Karma tasks setup in the Gruntfile. These are `dev` and `prod`.
 
-** Dev
+### Dev
 
 Running `grunt karma:dev` will run the tests but not kill the test server (the option *singleRun* is set to false). The option *autoWatch* is also set to true, so any file changes made to the source code or tests will re-run the tests.
 
-** Prod
+### Prod
 
 Running `grunt karma:prod` will run the tests once and exit.
