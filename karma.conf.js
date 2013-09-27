@@ -18,7 +18,7 @@ module.exports = function(config) {
         // use dots reporter, as travis terminal does not support escaping sequences
         // possible values: 'dots', 'progress'
         // CLI --reporters progress
-        reporters: ['dots'],
+        reporters: ['dots', 'coverage'],
 
         // web server port
         // CLI --port 9876
@@ -60,9 +60,22 @@ module.exports = function(config) {
         // CLI --report-slower-than 500
         reportSlowerThan: 500,
 
+        preprocessors: {
+            // source files, that you wanna generate coverage for
+            // do not include tests or libraries
+            // (these files will be instrumented by Istanbul)
+            'src/*.js': ['coverage']
+        },
+
+        coverageReporter: {
+            type : 'html',
+            dir : 'coverage/'
+        },
+
         plugins: [
             'karma-jasmine',
-            'karma-phantomjs-launcher'
+            'karma-phantomjs-launcher',
+            'karma-coverage'
         ]
     });
 };
